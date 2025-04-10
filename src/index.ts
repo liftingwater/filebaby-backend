@@ -26,9 +26,15 @@ fastify.get('/:id', {schema: getFileSchema}, async (request: any, reply) => {
 
 // Upload a file
 // Create an endpoint for uploading a file
+fastify.post('/', async (request, reply) => {
+    return { message: 'File uploaded successfully!' }
+})
 
 // Delete a file
 // Create an endpoint for deleting a file
+fastify.delete('/', async (request, reply) => {
+    return { message: 'File deleted successfully!' }
+})
 
 
 const start = async () => {
