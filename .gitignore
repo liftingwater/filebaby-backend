@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# TypeScript
+dist/
+*.tsbuildinfo
+
+# Env & Secrets
+.env
+
+# Editor junk
+.vscode/
