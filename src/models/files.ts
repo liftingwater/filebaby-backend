@@ -5,9 +5,8 @@ const getSchema = {
       name: { type: 'string' },
       file_data: { type: 'object' },
       path_to_data: {type: 'string'}, 
-      // TODO: update the date fields to have the correct formatting
-      createdAt: { type: 'string' },
-      updatedAt: { type: 'string' }
+      createdAt: { type: 'string', format: 'date-time' },
+      updatedAt: { type: 'string', format: 'date-time' }
     }
   };
 
