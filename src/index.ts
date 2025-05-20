@@ -1,41 +1,10 @@
 import Fastify from 'fastify'
-import { stringify } from 'querystring';
-import { getFileSchema } from './models/files'
+import filesRoutes from './routes/files'
+
 
 const fastify = Fastify({ logger: true })
 
-// Get all of the files
-fastify.get('/', async (request, reply) => {
-  return { message: 'Filebaby backend is alive!' }
-})
-
-// Get a specific file
-fastify.get('/:id', {schema: getFileSchema}, async (request: any, reply) => {
-
-    const fileData = {
-        id: request.params.id,
-        name: "my first file",
-        file_data: {},
-        path_to_data: "path/to/file.txt", 
-        createdAt: "yesterday",
-        updatedAt: "today"
-    }
-
-    return fileData;
-});
-
-// Upload a file
-// Create an endpoint for uploading a file
-fastify.post('/', async (request, reply) => {
-    return { message: 'File uploaded successfully!' }
-})
-
-// Delete a file
-// Create an endpoint for deleting a file
-fastify.delete('/', async (request, reply) => {
-    return { message: 'File deleted successfully!' }
-})
-
+fastify.register(filesRoutes)
 
 const start = async () => {
   try {
