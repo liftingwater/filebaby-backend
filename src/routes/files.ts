@@ -3,8 +3,14 @@ import { uploadFile } from '../services/files';
 import { listFiles } from '../services/files';
 import { downloadFile } from '../services/files';
 import { deleteFile } from '../services/files';
+import { welcomeMessage } from '../services/files';
 
 export default async function filesRoutes(fastify: FastifyInstance) {
+  fastify.get('/', async () => {
+    const result = welcomeMessage();
+    return result;
+  })
+
   fastify.post('/upload', async (request, reply) => {
     const result = await uploadFile(request);
     return result;
