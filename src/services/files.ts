@@ -3,6 +3,10 @@ import { join } from 'path';
 
 const uploadDir = './uploads';
 
+export async function welcomeMessage() {
+  return "Login to use filebaby";
+}
+
 export async function uploadFile(request: any) {
   const file = request.file;
   const filePath = join(uploadDir, file.filename);
